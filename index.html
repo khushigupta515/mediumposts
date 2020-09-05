@@ -27,6 +27,8 @@ fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wil
       posts.forEach((item) => {
          output += `
          <li class="blog__post">
+          <div class="container-fluid">
+         <div class="jumbotron" >
             <a href="${item.link}">
                <img src="${item.thumbnail}" class="blog__topImg" style="  display: block;
   margin-left: auto;
@@ -34,7 +36,7 @@ fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wil
   width: 50%;"></img>
                <div class="blog__content" >
                   <div class="blog_preview">
-                     <h1 class="blog__title">${shortenText(item.title, 0, 70)+ '...'}</h1>
+                    </br> <h1 class="blog__title" style="color:black;">${shortenText(item.title, 0, 70)+ '...'}</h1>
                      <p class="blog__intro">${'...' + shortenText(toText(item.content),60, 300)+ '...'}</p>
                   </div>
                   <hr>
@@ -42,6 +44,8 @@ fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@wil
                      <span class="blog__author">${item.author}</span>
                      <span class="blog__date">${shortenText(item.pubDate,0 ,10)}</span>
                   </div>
+               </div>
+               </div>
                </div>
             <a/>
          </li>`
@@ -167,6 +171,7 @@ ul{
       <span class="blog__header2Span">medium:</span>
     </h1>
   </div>
+ 
   <ul class="blog__slider container-fluid">
     Posts go here
   </ul>
@@ -175,6 +180,7 @@ ul{
     <li class="blog__counterItem"></li>
     <li class="blog__counterItem"></li>
   </ul>
+
 </section>
 </body>
 </html>
